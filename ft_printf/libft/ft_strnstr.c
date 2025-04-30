@@ -6,7 +6,7 @@
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 13:13:17 by tcabral           #+#    #+#             */
-/*   Updated: 2025/04/16 12:53:51 by tcabral          ###   ########.fr       */
+/*   Updated: 2025/04/24 15:16:56 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	j;
 
 	i = 0;
-	if (!big && !len)
-		return (0);
+	if ((!big || !little) && len == 0)
+		return (NULL);
 	if (little[0] == '\0' || little == big)
 		return ((char *)big);
 	while (big[i] != '\0')

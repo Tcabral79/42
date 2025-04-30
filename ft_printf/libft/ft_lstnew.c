@@ -1,44 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 13:13:43 by tcabral           #+#    #+#             */
-/*   Updated: 2025/04/21 16:05:21 by tcabral          ###   ########.fr       */
+/*   Created: 2025/04/21 11:06:08 by pfonseca          #+#    #+#             */
+/*   Updated: 2025/04/21 16:39:30 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+t_list	*ft_lstnew(void *content)
 {
-	int	i;
+	t_list	*node;
 
-	if (!s || !f)
-		return ;
-	i = 0;
-	while (s[i] != '\0')
-	{
-		(*f)(i, &s[i]);
-		i++;
-	}
-	s[i] = '\0';
+	node = (t_list *)malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }
 
-/*void to_upper_even(unsigned int i, char *c)
-{
-	if (i % 2 == 0 && *c)
-		*c = ft_toupper(*c);
-}
+// int	main(void)
+// {
+// 	t_list	*node;
+// 	char	*str = "Benfica";
 
-int	main(void)
-{
-	char	str[] = "benfica";
-
-	printf("Before: %s\n", str);
-	ft_striteri(str, to_upper_even);
-	printf("After:  %s\n", str);
-	return (0);
-}*/
+// 	node = ft_lstnew(str);
+// 	if (node)
+// 		printf("Content: %s\n", (char *)node->content);
+// 	else
+// 		printf("Allocation failed.\n");
+// 	return (0);
+// }

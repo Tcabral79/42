@@ -6,33 +6,42 @@
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 12:35:51 by tcabral           #+#    #+#             */
-/*   Updated: 2025/04/25 12:35:52 by tcabral          ###   ########.fr       */
+/*   Updated: 2025/04/30 13:59:09 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdint.h>
-#include "ft_printf.h"
+#include "printf.h"
 
-static int ft_put_hex(uintptr_t n)
+static int	ft_put_hex(uintptr_t n)
 {
-    int count = 0;
-    char *hex = "0123456789abcdef";
+	int		count;
+	char	*hex;
+	
+	count = 0;
+	hex = "0123456789abcdef";
 
-    if (n >= 16)
-        count += ft_put_hex(n / 16);
-    count += write(1, &hex[n % 16], 1);
-    return count;
+	if (n >= 16)
+		count = count + ft_put_hex(n / 16);
+	count = count + ft_print_char(hex[n % 16]);
+	return (count);
 }
 
-int ft_print_ptr(void *ptr)
+int	ft_print_ptr(void *ptr)
 {
-    int count = 0;
+	int count;
+	
+	count = 0;
+	if (!ptr)
+		return (ft_print_str("(nil)"));
 
-    if (!ptr)
-        return write(1, "(nil)", 5);
-
-    count += write(1, "0x", 2);
-    count += ft_put_hex((uintptr_t)ptr);
-    return count;
+	count = count + ft_print_str("0x");
+	count = ft_put_hex((uintptr_t)ptr);
+	return (count);
 }
+
+/*int	main (void)
+{
+	void *s = "benfica";
+	ft_print_ptr(s);
+	return (0);
+}*/

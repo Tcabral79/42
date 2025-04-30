@@ -6,7 +6,7 @@
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 13:13:37 by tcabral           #+#    #+#             */
-/*   Updated: 2025/04/16 12:51:50 by tcabral          ###   ########.fr       */
+/*   Updated: 2025/04/24 15:12:59 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 	i = 0;
 	j = 0;
-	if ((!src || !dst) && !size)
-		return (0);
+	if (size == 0)
+		return (ft_strlen (src));
 	while (dst[i] && i < size)
 		i++;
 	while (src[j] && (i + j + 1) < size)

@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 13:14:06 by tcabral           #+#    #+#             */
-/*   Updated: 2025/04/15 13:34:54 by tcabral          ###   ########.fr       */
+/*   Created: 2025/04/15 13:13:56 by tcabral           #+#    #+#             */
+/*   Updated: 2025/04/15 13:39:41 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+void	ft_putstr_fd(char const *str, int fd)
 {
-	write(1, &c, 1);
+	int	i;
+
+	i = 0;
+	if (!str)
+		return ;
+	while (str[i] != '\0')
+	{
+		write (fd, &str[i], 1);
+		i++;
+	}
 }
 
 /*int	main(void)
 {
-	ft_putchar_fd('A', 1);
+	ft_putstr_fd("Benfica", 1);
 	return (0);
 }*/

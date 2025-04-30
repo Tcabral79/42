@@ -6,13 +6,11 @@
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 12:35:58 by tcabral           #+#    #+#             */
-/*   Updated: 2025/04/25 12:35:59 by tcabral          ###   ########.fr       */
+/*   Updated: 2025/04/30 13:59:01 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdarg.h>
-#include <unistd.h>
+#include "printf.h"
 
 int	ft_check_format(char format, va_list args)
 {
@@ -23,15 +21,15 @@ int	ft_check_format(char format, va_list args)
 	if (format == 'p')
 		return (ft_print_ptr(va_arg(args, void *)));
 	if (format == 'd' || format == 'i')
-		return (ft_print_nbr(va_arg(args, int)));
+		return (ft_print_int(va_arg(args, int)));
 	if (format == 'u')
 		return (ft_print_unsigned(va_arg(args, unsigned int)));
 	if (format == 'x')
-		return (ft_print_hex(va_arg(args, unsigned int), 0));
+		return (ft_print_hex(va_arg(args, unsigned int), 'x'));
 	if (format == 'X')
-		return (ft_print_hex(va_arg(args, unsigned int), 1));
+		return (ft_print_hex(va_arg(args, unsigned int), 'X'));
 	if (format == '%')
-		return (write(1, "%", 1));
+		return (ft_print_char('%'));
 	return (0);
 }
 

@@ -1,44 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 13:13:43 by tcabral           #+#    #+#             */
-/*   Updated: 2025/04/21 16:05:21 by tcabral          ###   ########.fr       */
+/*   Created: 2025/04/21 12:46:52 by pfonseca          #+#    #+#             */
+/*   Updated: 2025/04/21 16:39:17 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	int	i;
-
-	if (!s || !f)
+	if (!lst || !del)
 		return ;
-	i = 0;
-	while (s[i] != '\0')
-	{
-		(*f)(i, &s[i]);
-		i++;
-	}
-	s[i] = '\0';
+	del(lst->content);
+	free(lst);
 }
 
-/*void to_upper_even(unsigned int i, char *c)
-{
-	if (i % 2 == 0 && *c)
-		*c = ft_toupper(*c);
-}
+// void	del_content(void *content)
+// {
+// 	free(content);
+// }
 
-int	main(void)
-{
-	char	str[] = "benfica";
+// int	main(void)
+// {
+// 	char	*str = strdup("sporting");
+// 	t_list	*node = ft_lstnew(str);
 
-	printf("Before: %s\n", str);
-	ft_striteri(str, to_upper_even);
-	printf("After:  %s\n", str);
-	return (0);
-}*/
+// 	printf("Before delete: %s\n", (char *)node ->content);
+// 	ft_lstdelone(node, del_content);
+// 	printf("After delete: gone!\n");
+// 	return (0);
+// }

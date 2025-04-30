@@ -1,33 +1,48 @@
-NAME = ft_printf
+NAME = libftprintf.a
 
-LIBFT_DIR = ./libft
+LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SRC =	ft_printf.c \
-		ft_print_char.c \
-		ft_print_int.c \
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+RM = rm -f
+AR = ar rcs
 
+SRC = ft_print_char.c\
+	  ft_print_int.c\
+	  ft_print_hex.c\
+	  ft_print_ptr.c\
+	  ft_print_str.c\
+	  ft_print_unsigned.c\
+	  ft_printf.c\
+	  ft_itoa.c
 
 OBJ = $(SRC:.c=.o)
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+$(LIBFT):
+	@$(MAKE) -C $(LIBFT_DIR)
 
 all: $(LIBFT) $(NAME)
 
-$(LIBFT):
-	make -C $(LIBFT_DIR)
+ft_printf: $(LIBFT) $(OBJ)
+	@$(CC) $(OBJ) -o $@ -L$(LIBFT_DIR) -lft
+	@echo "✅ Executable 'printf' created!"
+$(NAME): $(OBJ) 
+	@$(AR) $(NAME) $(OBJ)
+	@echo "✅ Biblioteca $(NAME) criada com sucesso!"
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT)
+%.o: %.c
+	@$(CC) $(CFLAGS)  -c $< -o $@
+	@echo "🔧 Compilado: $<"
 
 clean:
-	make clean -C $(LIBFT_DIR)
-	rm -f $(OBJ)
+	@$(RM) $(OBJ)
+	@echo "🧹 Arquivos .o removidos!"
 
 fclean: clean
-	make fclean -C $(LIBFT_DIR)
-	rm -f $(NAME)
+	@$(RM) $(NAME)
+	@echo "🗑️ Biblioteca $(NAME) removida!"
 
-re: fclean all re clean
+re: fclean all
 
+.PHONY: all clean fclean re

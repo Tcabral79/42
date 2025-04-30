@@ -1,44 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 13:13:43 by tcabral           #+#    #+#             */
-/*   Updated: 2025/04/21 16:05:21 by tcabral          ###   ########.fr       */
+/*   Created: 2025/04/21 12:17:23 by pfonseca          #+#    #+#             */
+/*   Updated: 2025/04/21 16:39:23 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+t_list	*ft_lstlast(t_list *lst)
 {
-	int	i;
-
-	if (!s || !f)
-		return ;
-	i = 0;
-	while (s[i] != '\0')
-	{
-		(*f)(i, &s[i]);
-		i++;
-	}
-	s[i] = '\0';
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }
 
-/*void to_upper_even(unsigned int i, char *c)
-{
-	if (i % 2 == 0 && *c)
-		*c = ft_toupper(*c);
-}
+// int	main(void)
+// {
+// 	t_list	*a = ft_lstnew("First");
+// 	t_list	*b = ft_lstnew("Second");
+// 	t_list	*c = ft_lstnew("Last");
 
-int	main(void)
-{
-	char	str[] = "benfica";
-
-	printf("Before: %s\n", str);
-	ft_striteri(str, to_upper_even);
-	printf("After:  %s\n", str);
-	return (0);
-}*/
+// 	ft_lstadd_front(&b, a);
+// 	ft_lstadd_front(&c, b);
+// 	t_list	*last = ft_lstlast(c);
+// 	printf("Last node content: %s\n", (char *)last->content);
+// 	return (0);
+// }

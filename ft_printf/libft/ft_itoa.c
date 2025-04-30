@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/25 12:35:48 by tcabral           #+#    #+#             */
-/*   Updated: 2025/04/30 13:59:12 by tcabral          ###   ########.fr       */
+/*   Created: 2025/04/15 13:14:28 by tcabral           #+#    #+#             */
+/*   Updated: 2025/04/15 13:20:47 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "libft.h"
 
-/*static int	ft_size(long n)
+static int	ft_size(long n)
 {
 	int	i;
 
@@ -25,9 +25,9 @@
 	while (n / 10 > 0 && i++)
 		n = n / 10;
 	return (i);
-}*/
+}
 
-/*char	*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	long	l;
@@ -52,21 +52,12 @@
 		l /= 10;
 	}
 	return (str);
-}*/
-
-int	ft_print_int(int n)
-{
-	int		count;
-	char	*str;
-
-	str = ft_itoa(n);
-	count = ft_print_str(str);
-	free(str);
-	return (count);
 }
-/*int	main (void)
+
+/*int	main(void)
 {
-	int	n = -23;
-	ft_print_int(n);
+	int	n = -123545;
+
+	printf("%s\n", ft_itoa(n));
 	return (0);
 }*/

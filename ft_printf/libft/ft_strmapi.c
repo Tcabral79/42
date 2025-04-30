@@ -6,7 +6,7 @@
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 13:13:25 by tcabral           #+#    #+#             */
-/*   Updated: 2025/04/15 13:44:51 by tcabral          ###   ########.fr       */
+/*   Updated: 2025/04/22 18:32:56 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	length;
 	char			*res;
 
-	if (!s)
+	if (!s || !f)
 		return (NULL);
 	length = ft_strlen(s);
 	res = malloc(length * sizeof(char) + 1);
@@ -34,13 +34,13 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	return (res);
 }
 
-char	ft_hashtag(unsigned int i, char c)
+/*char	ft_hashtag(unsigned int i, char c)
 {
 	if (i % 2 == 0)
 		return ('#');
 	else
 		return (c);
-}
+}*/
 
 /*int	main(void)
 {

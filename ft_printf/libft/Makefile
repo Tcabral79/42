@@ -52,16 +52,16 @@ OBJ_BONUS = $(SRC_BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ) 
-	$(AR) $(NAME) $(OBJ)
+	@$(AR) $(NAME) $(OBJ)
 	@echo "✅ Biblioteca $(NAME) criada com sucesso!"
 bonus: .bonus
 .bonus: $(OBJ_BONUS) $(OBJ)
-	$(AR) $(NAME) $(OBJ) $(OBJ_BONUS) 
+	@$(AR) $(NAME) $(OBJ) $(OBJ_BONUS) 
 	@echo "✅ Biblioteca $(NAME) criada com sucesso!"
-	touch .bonus
+	@touch .bonus
 
 %.o: %.c
-	$(CC) $(CFLAGS)  -c $< -o $@
+	@$(CC) $(CFLAGS)  -c $< -o $@
 	@echo "🔧 Compilado: $<"
 
 clean:
@@ -75,5 +75,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-
-	@echo "		re: fclean and all						"

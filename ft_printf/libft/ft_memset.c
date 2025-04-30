@@ -6,7 +6,7 @@
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 13:14:10 by tcabral           #+#    #+#             */
-/*   Updated: 2025/04/16 16:20:43 by tcabral          ###   ########.fr       */
+/*   Updated: 2025/04/22 15:57:43 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	*ft_memset(void *b, int c, size_t len)
 /*int	main(void)
 {
 	char	dest[15];
-	strcpy(dest, "daje Roma daje");
+	strcpy(dest, "hello world");
 	printf("%s\n", dest);
 	ft_memset(dest, 'a', 10);
 	printf("%s\n", dest);

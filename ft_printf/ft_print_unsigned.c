@@ -6,17 +6,17 @@
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 12:35:55 by tcabral           #+#    #+#             */
-/*   Updated: 2025/04/25 12:35:56 by tcabral          ###   ########.fr       */
+/*   Updated: 2025/04/30 13:59:05 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "ft_printf.h"
+#include "printf.h"
 
 static int	ft_numlen(unsigned int n)
 {
-	int	len = 1;
+	int	len;
 
+	len = 1;
 	while (n >= 10)
 	{
 		n /= 10;
@@ -27,9 +27,11 @@ static int	ft_numlen(unsigned int n)
 
 static char	*ft_utoa(unsigned int n)
 {
-	int		len = ft_numlen(n);
-	char	*str = malloc(len + 1);
+	int		len;
+	char	*str;
 
+	len = ft_numlen(n);
+	str = malloc(len + 1);
 	if (!str)
 		return (NULL);
 	str[len] = '\0';
@@ -43,12 +45,21 @@ static char	*ft_utoa(unsigned int n)
 
 int	ft_print_unsigned(unsigned int n)
 {
-	char	*str = ft_utoa(n);
-	int		len = 0;
+	char	*str; 
+	int		len; 
 
+	str = ft_utoa(n);
+	len = 0;
 	if (!str)
 		return (0);
-	len = ft_print_str(str); // já imprimimos com ft_print_str
+	len = ft_print_str(str);
 	free(str);
 	return (len);
 }
+
+/*int	main (void)
+{
+	unsigned int	n = 1234567890;
+	ft_print_unsigned(n);
+	return (0);
+}*/

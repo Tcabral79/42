@@ -6,7 +6,7 @@
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 13:13:47 by tcabral           #+#    #+#             */
-/*   Updated: 2025/04/16 12:51:14 by tcabral          ###   ########.fr       */
+/*   Updated: 2025/04/24 15:14:29 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strdup(const char *s)
 	char	*copy;
 
 	i = 0;
-	if (!s)
-		return (NULL);
 	while (s[i])
 	{
 		i++;

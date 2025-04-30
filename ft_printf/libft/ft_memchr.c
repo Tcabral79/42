@@ -6,7 +6,7 @@
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 13:14:23 by tcabral           #+#    #+#             */
-/*   Updated: 2025/04/18 13:06:11 by tcabral          ###   ########.fr       */
+/*   Updated: 2025/04/22 16:11:05 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 /*int main(void)
 {
-	char	s[] = "d";
+	char	s[] = "adeus";
 	char	*p = ft_memchr(s, 'd', 7);
 	if (p)
 		printf("memchr: %s\n", p);

@@ -6,11 +6,11 @@
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 12:35:41 by tcabral           #+#    #+#             */
-/*   Updated: 2025/04/25 13:49:53 by tcabral          ###   ########.fr       */
+/*   Updated: 2025/04/30 13:58:48 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "printf.h"
 
 int	ft_print_char(int c)
 {
@@ -18,9 +18,11 @@ int	ft_print_char(int c)
 	return (1);
 }
 
-/*int	main (void)
+/*
+int	main (void)
 {
-	int c = 65;
+	int	c = 65;
+	
 	ft_print_char(c);
 	return (0);
 }*/
