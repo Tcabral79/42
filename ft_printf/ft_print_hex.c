@@ -6,17 +6,11 @@
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 12:35:45 by tcabral           #+#    #+#             */
-/*   Updated: 2025/04/30 13:59:16 by tcabral          ###   ########.fr       */
+/*   Updated: 2025/05/01 13:46:04 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
-
-/*int	ft_putchar(char c)
-{
-	write(1, &c, 1);
-	return (1);
-}*/
+#include "ft_printf.h"
 
 int	ft_puthex(unsigned int num, const char format)
 {
@@ -39,10 +33,10 @@ int	ft_print_hex(unsigned int num, const char format)
 	return (ft_puthex(num, format));
 }
 
-int	main (void)
+/*int	main (void)
 {
 	unsigned int	c = 2555;
 	
 	ft_print_hex (c, 'X');
 	return (0);
-}
+}*/

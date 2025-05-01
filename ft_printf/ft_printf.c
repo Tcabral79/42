@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/25 12:35:58 by tcabral           #+#    #+#             */
-/*   Updated: 2025/04/30 13:59:01 by tcabral          ###   ########.fr       */
+/*   Created: 2025/05/01 13:52:36 by tcabral           #+#    #+#             */
+/*   Updated: 2025/05/01 13:59:21 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_check_format(char format, va_list args)
 {
@@ -36,9 +36,11 @@ int	ft_check_format(char format, va_list args)
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	int		i = 0;
-	int		printed = 0;
+	int		i;
+	int		printed;
 
+	i = 0;
+	printed = 0;
 	va_start(args, format);
 	while (format[i])
 	{

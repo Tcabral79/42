@@ -5,56 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/25 12:35:55 by tcabral           #+#    #+#             */
-/*   Updated: 2025/04/30 13:59:05 by tcabral          ###   ########.fr       */
+/*   Created: 2025/05/01 13:52:03 by tcabral           #+#    #+#             */
+/*   Updated: 2025/05/01 13:54:11 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
-
-static int	ft_numlen(unsigned int n)
-{
-	int	len;
-
-	len = 1;
-	while (n >= 10)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
-}
-
-static char	*ft_utoa(unsigned int n)
-{
-	int		len;
-	char	*str;
-
-	len = ft_numlen(n);
-	str = malloc(len + 1);
-	if (!str)
-		return (NULL);
-	str[len] = '\0';
-	while (len--)
-	{
-		str[len] = (n % 10) + '0';
-		n /= 10;
-	}
-	return (str);
-}
+#include "ft_printf.h"
 
 int	ft_print_unsigned(unsigned int n)
 {
-	char	*str; 
-	int		len; 
+	int	count;
 
-	str = ft_utoa(n);
-	len = 0;
-	if (!str)
-		return (0);
-	len = ft_print_str(str);
-	free(str);
-	return (len);
+	count = 0;
+	if (n >= 10)
+		count = count + ft_print_unsigned(n / 10);
+	count = count + ft_print_char((n % 10) + '0');
+	return (count);
 }
 
 /*int	main (void)

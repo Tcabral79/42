@@ -6,11 +6,11 @@
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 13:14:28 by tcabral           #+#    #+#             */
-/*   Updated: 2025/04/15 13:20:47 by tcabral          ###   ########.fr       */
+/*   Updated: 2025/05/01 13:35:17 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 static int	ft_size(long n)
 {

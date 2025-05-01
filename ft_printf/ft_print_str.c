@@ -6,16 +6,16 @@
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 12:35:36 by tcabral           #+#    #+#             */
-/*   Updated: 2025/04/30 13:59:07 by tcabral          ###   ########.fr       */
+/*   Updated: 2025/05/01 13:58:01 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_print_str(char *str)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	if (!str)
 		return (ft_print_str("(null)"));
