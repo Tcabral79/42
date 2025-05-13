@@ -6,7 +6,7 @@
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 14:39:45 by tcabral           #+#    #+#             */
-/*   Updated: 2025/05/01 13:44:42 by tcabral          ###   ########.fr       */
+/*   Updated: 2025/05/12 17:07:16 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
-# include <stdint.h>
 # include <stdio.h>
 
 int		ft_printf(const char *format, ...);

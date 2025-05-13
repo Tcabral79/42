@@ -6,7 +6,7 @@
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 13:14:28 by tcabral           #+#    #+#             */
-/*   Updated: 2025/05/01 13:35:17 by tcabral          ###   ########.fr       */
+/*   Updated: 2025/05/12 16:18:21 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,11 @@ static int	ft_size(long n)
 		n *= -1;
 		i++;
 	}
-	while (n / 10 > 0 && i++)
+	while (n / 10 > 0)
+	{
 		n = n / 10;
+		i++;
+	}
 	return (i);
 }
 
@@ -46,7 +49,7 @@ char	*ft_itoa(int n)
 	str[--len] = '\0';
 	if (l == 0)
 		str[0] = '0';
-	while (l)
+	while (l >= 1)
 	{
 		str[--len] = (l % 10) + '0';
 		l /= 10;
@@ -56,8 +59,7 @@ char	*ft_itoa(int n)
 
 /*int	main(void)
 {
-	int	n = -123545;
-
+	int	n = -;
 	printf("%s\n", ft_itoa(n));
 	return (0);
 }*/

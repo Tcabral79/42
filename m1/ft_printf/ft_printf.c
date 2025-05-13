@@ -6,7 +6,7 @@
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 13:52:36 by tcabral           #+#    #+#             */
-/*   Updated: 2025/05/01 13:59:21 by tcabral          ###   ########.fr       */
+/*   Updated: 2025/05/13 10:57:41 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,36 @@ int	ft_printf(const char *format, ...)
 			printed = printed + ft_check_format(format[i + 1], args);
 			i++;
 		}
+		if (format[i] == '%' && !(format[i + 1]))
+		{
+			write(1, "\0", 1);
+		}
 		else
 			printed = printed + write(1, &format[i], 1);
 		i++;
 	}
 	va_end(args);
 	return (printed);
+}
+
+int main(void)
+{
+	char *str = "42";
+	//long int d = 23;
+
+	ft_printf("Char: %c%d\n", 'A', 23);
+	ft_printf("String: %s\n", str);
+	ft_printf("Pointer: %p\n", str);
+	ft_printf("Decimal: %d\n", -123);
+	ft_printf("Integer: %i\n", -456);
+	ft_printf("Unsigned: %u\n", -3);
+	ft_printf("Hex (lower): %x\n", 255);
+	ft_printf("Hex (upper): %X\n", 255);
+	ft_printf("Percent sign: %%\n");
+	printf ("benfica\n");
+	//printf ("%ld\n", d);
+	//printf ("ola%");
+	//ft_printf ("%ld\n", d);
+	ft_printf ("ola%");
+	return (0);
 }
