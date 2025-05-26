@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 11:09:26 by tcabral           #+#    #+#             */
-/*   Updated: 2025/05/22 14:34:19 by tcabral          ###   ########.fr       */
+/*   Created: 2025/05/13 22:00:15 by tcabral           #+#    #+#             */
+/*   Updated: 2025/05/22 14:33:40 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_strlenchr(const char *s, size_t *len)
 {

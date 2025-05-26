@@ -6,7 +6,7 @@
 /*   By: tcabral <tcabral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 13:52:36 by tcabral           #+#    #+#             */
-/*   Updated: 2025/05/13 10:57:41 by tcabral          ###   ########.fr       */
+/*   Updated: 2025/05/15 14:34:49 by tcabral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ int	ft_check_format(char format, va_list args)
 		return (ft_print_hex(va_arg(args, unsigned int), 'X'));
 	if (format == '%')
 		return (ft_print_char('%'));
-	return (0);
+	if (format == 0)
+		return (ft_print_char(0));
+	return (-1);
 }
 
 int	ft_printf(const char *format, ...)
@@ -49,9 +51,14 @@ int	ft_printf(const char *format, ...)
 			printed = printed + ft_check_format(format[i + 1], args);
 			i++;
 		}
-		if (format[i] == '%' && !(format[i + 1]))
+		else if (format[i] == '%' && !(format[i + 1]))
 		{
 			write(1, "\0", 1);
+		}
+		else if (format[i] == 0)
+		{
+			printed = printed + ft_check_format(format[i + 1], args);
+			i++;
 		}
 		else
 			printed = printed + write(1, &format[i], 1);
@@ -75,10 +82,13 @@ int main(void)
 	ft_printf("Hex (lower): %x\n", 255);
 	ft_printf("Hex (upper): %X\n", 255);
 	ft_printf("Percent sign: %%\n");
+	ft_printf("Percent sign: %%%d%c%s%g%p\n", 42, 65, str, str, str);
 	printf ("benfica\n");
 	//printf ("%ld\n", d);
 	//printf ("ola%");
 	//ft_printf ("%ld\n", d);
-	ft_printf ("ola%");
+	ft_printf ("%");
+	// ft_printf (NULL);
+	// printf(NULL);
 	return (0);
 }
